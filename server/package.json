@@ -5,10 +5,14 @@
   "main": "index.js",
   "author": "Andrés Siri",
   "license": "ISC",
+  "engines": {
+    "npm": ">=9.5.1",
+    "node": ">=18.16.1"
+  },
   "scripts": {
-    "start": "tsc --project ./ && node build/index.js",
-    "dev": "nodemon index.ts",
-    "build": "tsc --project ./"
+    "build": "rimraf ./build && tsc --project ./",
+    "start": "npm run build && node build/index.js",
+    "dev": "nodemon -L index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -20,6 +24,7 @@
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.5",
     "nodemon": "^2.0.22",
+    "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   }

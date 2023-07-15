@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  siri-server:
+    container_name: siri-server-c
+    build:
+      context: ./server
+      target: production
+    ports:
+      - 8080:8080
