@@ -14,7 +14,8 @@
   "license": "ISC",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "eslint": "^8.45.0",
@@ -24,6 +25,18 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --debug"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "tsc -p tsconfig.json --noEmit"
+    ]
   }
 }
