@@ -13,6 +13,9 @@
   "author": "Andrés Siri",
   "license": "ISC",
   "scripts": {
+    "server": "tsc --project ./server && node server/build/index.js",
+    "server:dev": "nodemon server/index.ts",
+    "server:build": "tsc --project ./server",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepare": "husky install"
