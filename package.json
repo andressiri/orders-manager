@@ -12,10 +12,14 @@
   "homepage": "https://github.com/andressiri/orders-manager#readme",
   "author": "Andrés Siri",
   "license": "ISC",
+  "engines": {
+    "npm": ">=9.5.1",
+    "node": ">=18.16.1"
+  },
   "scripts": {
-    "server": "tsc --project ./server && node server/build/index.js",
-    "server:dev": "nodemon server/index.ts",
-    "server:build": "tsc --project ./server",
+    "server:build": "rimraf ./server/build && tsc --project ./server",
+    "server": "npm run server:build && node server/build/index.js",
+    "server:dev": "nodemon -L server/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepare": "husky install"

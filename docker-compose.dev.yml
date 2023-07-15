@@ -1,0 +1,15 @@
+# this file should be run with the command 'docker compose -f docker-compose.dev.yml up'
+version: "3.9"
+
+services:
+  siri-server-dev:
+    container_name: siri-server-dev-c
+    build:
+      context: ./server
+      target: development
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 8080:8080
+    command: npm run dev
