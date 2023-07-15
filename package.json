@@ -1,0 +1,15 @@
+{
+  "name": "ordersmanager",
+  "version": "0.0.1",
+  "description": "Ecommerce sales orders manager developed with Clean Architecture",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andressiri/orders-manager.git"
+  },
+  "author": "Andrés Siri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andressiri/orders-manager/issues"
+  },
+  "homepage": "https://github.com/andressiri/orders-manager#readme"
+}
