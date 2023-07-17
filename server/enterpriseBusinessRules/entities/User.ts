@@ -13,6 +13,7 @@ const User = {
     type: "string",
     unique: true,
     required: true,
+    isEmail: true,
   },
   password: {
     type: "string",
