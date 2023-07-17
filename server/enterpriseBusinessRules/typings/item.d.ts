@@ -6,9 +6,9 @@ export interface IItem {
   description?: string;
   url: string;
   price: number;
-  quantity: integer;
+  quantity: number;
   createDate: Date;
   updateDate: Date;
-  Vendor: IUser;
+  vendorId: string;
   Orders?: IOrder[];
 }

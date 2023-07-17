@@ -22,6 +22,10 @@ const UserModel = (sequelize: Sequelize) => {
         foreignKey: "clientId",
         as: "ClientOrders",
       });
+      User.hasMany(models.Item, {
+        foreignKey: "vendorId",
+        as: "SellingItems",
+      });
     }
   }
 

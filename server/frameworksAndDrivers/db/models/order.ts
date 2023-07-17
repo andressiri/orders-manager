@@ -27,6 +27,11 @@ const OrderModel = (sequelize: Sequelize) => {
         foreignKey: "clientId",
         as: "Client",
       });
+      Order.belongsToMany(models.Item, {
+        through: "OrdersItems",
+        foreignKey: "orderId",
+        as: "Orders",
+      });
     }
   }
 
