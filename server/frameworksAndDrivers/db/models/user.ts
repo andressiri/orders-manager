@@ -13,8 +13,16 @@ const UserModel = (sequelize: Sequelize) => {
     declare updateDate: Date;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // eslint-disable-next-line
-    static associate(models: any) {}
+    static associate(models: any) {
+      User.hasMany(models.Order, {
+        foreignKey: "vendorId",
+        as: "VendorOrders",
+      });
+      User.hasMany(models.Order, {
+        foreignKey: "clientId",
+        as: "ClientOrders",
+      });
+    }
   }
 
   User.init(

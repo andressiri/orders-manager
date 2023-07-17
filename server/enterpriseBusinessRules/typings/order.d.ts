@@ -10,7 +10,7 @@ export interface IOrder {
   shippingPromise: Date;
   createDate: Date;
   updateDate: Date;
-  Vendor: string;
-  Client: string;
+  vendorId: string;
+  clientId: string;
   Items?: IItem[];
 }

@@ -12,14 +12,22 @@ const OrderModel = (sequelize: Sequelize) => {
     declare status: OrderStatus;
     declare shippingAddress: string;
     declare shippingPromise: Date;
-    declare Vendor: string;
-    declare Client: string;
+    declare vendorId: string;
+    declare clientId: string;
     declare createDate: Date;
     declare updateDate: Date;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // eslint-disable-next-line
-    static associate(models: any) {}
+    static associate(models: any) {
+      Order.belongsTo(models.User, {
+        foreignKey: "vendorId",
+        as: "Vendor",
+      });
+      Order.belongsTo(models.User, {
+        foreignKey: "clientId",
+        as: "Client",
+      });
+    }
   }
 
   Order.init(
@@ -30,8 +38,8 @@ const OrderModel = (sequelize: Sequelize) => {
       shippingPromise: setupFieldType(order.shippingPromise),
       createDate: setupFieldType(order.createDate),
       updateDate: setupFieldType(order.updateDate),
-      Vendor: DataTypes.UUID,
-      Client: DataTypes.UUID,
+      vendorId: DataTypes.UUID,
+      clientId: DataTypes.UUID,
     },
     {
       sequelize,
