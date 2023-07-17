@@ -2,8 +2,35 @@
 version: "3.9"
 
 services:
+  siri-db-dev:
+    image: postgres:15.3-alpine
+    container_name: siri-db-dev-c
+    restart: on-failure:5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - siri-network-dev
+
+  siri-pg-admin:
+    image: dpage/pgadmin4
+    container_name: siri-pg-admin-c
+    restart: on-failure:5
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 5050:80
+    networks:
+      - siri-network-dev
+
   siri-server-dev:
     container_name: siri-server-dev-c
+    restart: on-failure:5
     build:
       context: ./server
       target: development
@@ -12,4 +39,13 @@ services:
       - /usr/src/app/node_modules
     ports:
       - 8080:8080
-    command: npm run dev
+    networks:
+      - siri-network-dev
+    command: "npm run start:dev"
+
+volumes:
+  pgdata:
+
+networks:
+  siri-network-dev:
+    driver: bridge
