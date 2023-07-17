@@ -1,6 +1,7 @@
 import User from "./user";
 import Order from "./order";
 import Item from "./item";
+import OrderItem from "./orderItem";
 
 const modelsArray = [
   {
@@ -14,6 +15,10 @@ const modelsArray = [
   {
     name: "Item",
     model: Item,
+  },
+  {
+    name: "OrderItem",
+    model: OrderItem,
   },
 ];
 

@@ -21,10 +21,16 @@ const ItemModel = (sequelize: Sequelize) => {
         foreignKey: "vendorId",
         as: "Vendor",
       });
+
       Item.belongsToMany(models.Order, {
-        through: "OrdersItems",
+        through: "OrderItems",
+        foreignKey: "orderId",
+        as: "Orders",
+      });
+
+      Item.hasMany(models.OrderItem, {
         foreignKey: "itemId",
-        as: "Items",
+        as: "hasManyOrders",
       });
     }
   }
