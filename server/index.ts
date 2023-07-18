@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import db from "./frameworksAndDrivers/db/models";
+import { errorHandler } from "./interfaceAdapters/middlewares";
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
@@ -36,6 +37,8 @@ db.sequelize
 app.get("/", (req, res) => {
   res.send("If you see this, server is running...");
 });
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
