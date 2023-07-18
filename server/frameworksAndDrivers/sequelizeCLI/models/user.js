@@ -6,8 +6,20 @@ const getEnterpriseBusinessRules_1 = require("../config/getEnterpriseBusinessRul
 const UserModel = (sequelize) => {
     class User extends sequelize_1.Model {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        // eslint-disable-next-line
-        static associate(models) { }
+        static associate(models) {
+            User.hasMany(models.Order, {
+                foreignKey: "vendorId",
+                as: "VendorOrders",
+            });
+            User.hasMany(models.Order, {
+                foreignKey: "clientId",
+                as: "ClientOrders",
+            });
+            User.hasMany(models.Item, {
+                foreignKey: "vendorId",
+                as: "SellingItems",
+            });
+        }
     }
     User.init({
         id: (0, config_1.setupFieldType)(getEnterpriseBusinessRules_1.User.id),
