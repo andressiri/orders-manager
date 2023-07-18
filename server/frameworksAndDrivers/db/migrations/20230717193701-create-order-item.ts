@@ -14,11 +14,11 @@ const orderItemsMigration = {
             primaryKey: true,
             type: DataTypes.INTEGER,
           },
-          createdAt: {
+          createDate: {
             allowNull: false,
             type: DataTypes.DATE,
           },
-          updatedAt: {
+          updateDate: {
             allowNull: false,
             type: DataTypes.DATE,
           },

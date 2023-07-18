@@ -6,6 +6,8 @@ const OrderItemModel = (sequelize: Sequelize) => {
     declare id: number;
     declare orderId: string;
     declare itemId: string;
+    declare createDate: Date;
+    declare updateDate: Date;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static associate(models: any) {
@@ -31,11 +33,16 @@ const OrderItemModel = (sequelize: Sequelize) => {
       },
       orderId: DataTypes.UUID,
       itemId: DataTypes.UUID,
+      createDate: DataTypes.DATE,
+      updateDate: DataTypes.DATE,
     },
     {
       sequelize,
       modelName: "OrderItem",
       tableName: "OrderItems",
+      timestamps: true,
+      createdAt: "createDate",
+      updatedAt: "updateDate",
     }
   );
 
