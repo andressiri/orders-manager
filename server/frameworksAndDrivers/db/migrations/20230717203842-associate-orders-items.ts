@@ -6,7 +6,7 @@ const associateOrdersItemsMigration = {
   async up(queryInterface: QueryInterface) {
     queryInterface.sequelize.transaction(async () => {
       await queryInterface.addColumn("OrderItems", "orderId", {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
           model: "Orders",
@@ -17,7 +17,7 @@ const associateOrdersItemsMigration = {
       });
 
       await queryInterface.addColumn("OrderItems", "itemId", {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
           model: "Items",

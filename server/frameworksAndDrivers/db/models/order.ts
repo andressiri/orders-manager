@@ -30,12 +30,12 @@ const OrderModel = (sequelize: Sequelize) => {
       });
 
       Order.belongsToMany(models.Item, {
-        through: "OrderItems",
+        through: models.OrderItem,
         foreignKey: "itemId",
         as: "Items",
       });
 
-      Order.hasMany(models.Items, {
+      Order.hasMany(models.Item, {
         foreignKey: "orderId",
         as: "hasManyItems",
       });
