@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import db from "./frameworksAndDrivers/db/models";
+import router from "./interfaceAdapters/routes";
+import { API_ROUTE, API_VERSION } from "./interfaceAdapters/config/constants";
 import { errorHandler } from "./interfaceAdapters/middlewares";
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
@@ -34,9 +36,8 @@ db.sequelize
     }
   });
 
-app.get("/", (req, res) => {
-  res.send("If you see this, server is running...");
-});
+// @/api/v1 router
+app.use(`/${API_ROUTE}/${API_VERSION}`, router);
 
 app.use(errorHandler);
 
