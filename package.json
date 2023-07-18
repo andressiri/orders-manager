@@ -6,10 +6,44 @@
     "type": "git",
     "url": "git+https://github.com/andressiri/orders-manager.git"
   },
-  "author": "Andrés Siri",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/andressiri/orders-manager/issues"
   },
-  "homepage": "https://github.com/andressiri/orders-manager#readme"
+  "homepage": "https://github.com/andressiri/orders-manager#readme",
+  "author": "Andrés Siri",
+  "license": "ISC",
+  "engines": {
+    "npm": ">=9.5.1",
+    "node": ">=18.16.1"
+  },
+  "scripts": {
+    "server:build": "rimraf ./server/build && tsc --project ./server",
+    "server": "npm run server:build && node server/build/index.js",
+    "server:dev": "nodemon -L server/index.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-next": "^13.4.10"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --debug"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "tsc -p tsconfig.json --noEmit"
+    ]
+  }
 }
