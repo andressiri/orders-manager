@@ -1,4 +1,4 @@
-import { IOrder } from "../../../enterpriseBusinessRules/typings/order";
+import { IOrder } from "../../../domain/typings/order";
 import { throwHTTPError } from "../../helpers";
 
 const getOrderById = (order: IOrder) => {

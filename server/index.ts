@@ -2,10 +2,10 @@ import path from "path";
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-import db from "./frameworksAndDrivers/db/models";
-import router from "./interfaceAdapters/routes";
-import { API_ROUTE, API_VERSION } from "./interfaceAdapters/config/constants";
-import { errorHandler } from "./interfaceAdapters/middlewares";
+import db from "./presentation/db/models";
+import router from "./infrastructure/routes";
+import { API_ROUTE, API_VERSION } from "./infrastructure/config/constants";
+import { errorHandler } from "./infrastructure/middlewares";
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 

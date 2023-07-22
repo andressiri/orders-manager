@@ -1,9 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { setupFieldType } from "../repository/config";
-import {
-  OrderStatus,
-  IOrder,
-} from "../../../enterpriseBusinessRules/typings/order";
+import { OrderStatus, IOrder } from "../../../domain/typings/order";
 import { Order as order } from "../config/getEnterpriseBusinessRules";
 
 const OrderModel = (sequelize: Sequelize) => {

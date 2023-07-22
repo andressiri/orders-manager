@@ -2,8 +2,8 @@
 // @route GET /api/v1/orders
 // @access Public
 import asyncHandler from "express-async-handler";
-import db from "../../../frameworksAndDrivers/db/models";
-import { getOrders as useCase } from "../../../applicationBusinessRules/useCases";
+import db from "../../../presentation/db/models";
+import { getOrders as useCase } from "../../../application/useCases";
 
 const { Order } = db;
 

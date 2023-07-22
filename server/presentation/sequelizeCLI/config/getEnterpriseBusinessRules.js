@@ -30,4 +30,4 @@ const __exportStar =
         __createBinding(exports, m, p);
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("../../../build/enterpriseBusinessRules"), exports);
+__exportStar(require("../../../build/domain"), exports);

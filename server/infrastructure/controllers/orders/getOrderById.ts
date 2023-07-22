@@ -3,8 +3,8 @@
 // @access Public
 import asyncHandler from "express-async-handler";
 import { BY_ID } from "../../config/constants";
-import db from "../../../frameworksAndDrivers/db/models";
-import { getOrderById as useCase } from "../../../applicationBusinessRules/useCases";
+import db from "../../../presentation/db/models";
+import { getOrderById as useCase } from "../../../application/useCases";
 
 const { Order } = db;
 

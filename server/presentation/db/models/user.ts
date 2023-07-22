@@ -1,6 +1,6 @@
 import { Model, Sequelize } from "sequelize";
 import { setupFieldType } from "../repository/config";
-import { IUser } from "../../../enterpriseBusinessRules/typings/user";
+import { IUser } from "../../../domain/typings/user";
 import { User as user } from "../config/getEnterpriseBusinessRules";
 
 const UserModel = (sequelize: Sequelize) => {

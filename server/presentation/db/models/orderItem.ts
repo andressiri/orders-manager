@@ -1,5 +1,5 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
-import { IOrderItem } from "../../../enterpriseBusinessRules/typings/orderItem";
+import { IOrderItem } from "../../../domain/typings/orderItem";
 
 const OrderItemModel = (sequelize: Sequelize) => {
   class OrderItem extends Model<IOrderItem> implements IOrderItem {

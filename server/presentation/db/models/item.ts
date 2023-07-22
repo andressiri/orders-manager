@@ -1,6 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { setupFieldType } from "../repository/config";
-import { IItem } from "../../../enterpriseBusinessRules/typings/item";
+import { IItem } from "../../../domain/typings/item";
 import { Item as item } from "../config/getEnterpriseBusinessRules";
 
 const ItemModel = (sequelize: Sequelize) => {
