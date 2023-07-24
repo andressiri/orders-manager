@@ -1,7 +1,8 @@
 import { Model, Sequelize } from "sequelize";
 import { setupFieldType } from "../repository/config";
 import { IUser } from "../../../domain/typings/user";
-import { User as user } from "../config/getEnterpriseBusinessRules";
+import { User as user } from "../config/getDomainRules";
+import { DBModels } from "../../typings/database";
 
 const UserModel = (sequelize: Sequelize) => {
   class User extends Model<IUser> implements IUser {
@@ -12,8 +13,7 @@ const UserModel = (sequelize: Sequelize) => {
     declare createDate: Date;
     declare updateDate: Date;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    static associate(models: any) {
+    static associate(models: DBModels) {
       User.hasMany(models.Order, {
         foreignKey: "vendorId",
         as: "VendorOrders",

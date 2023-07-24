@@ -1,7 +1,8 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { setupFieldType } from "../repository/config";
 import { OrderStatus, IOrder } from "../../../domain/typings/order";
-import { Order as order } from "../config/getEnterpriseBusinessRules";
+import { Order as order } from "../config/getDomainRules";
+import { DBModels } from "../../typings/database";
 
 const OrderModel = (sequelize: Sequelize) => {
   class Order extends Model<IOrder> implements IOrder {
@@ -14,8 +15,7 @@ const OrderModel = (sequelize: Sequelize) => {
     declare createDate: Date;
     declare updateDate: Date;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    static associate(models: any) {
+    static associate(models: DBModels) {
       Order.belongsTo(models.User, {
         foreignKey: "vendorId",
         as: "Vendor",
@@ -28,13 +28,8 @@ const OrderModel = (sequelize: Sequelize) => {
 
       Order.belongsToMany(models.Item, {
         through: models.OrderItem,
-        foreignKey: "itemId",
-        as: "Items",
-      });
-
-      Order.hasMany(models.Item, {
         foreignKey: "orderId",
-        as: "hasManyItems",
+        as: "Items",
       });
     }
   }

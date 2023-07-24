@@ -1,5 +1,5 @@
 import { QueryInterface } from "sequelize";
-import { User as user } from "../config/getEnterpriseBusinessRules";
+import { User as user } from "../config/getDomainRules";
 import { setupMigrationField } from "../repository/config";
 
 /** @type {import('sequelize-cli').Migration} */

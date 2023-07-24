@@ -1,4 +1,8 @@
-import { Dialect } from "sequelize";
+import { Dialect, ModelStatic, Sequelize } from "sequelize";
+import Item from "../db/models/item";
+import Order from "../db/models/order";
+import OrderItem from "../db/models/orderItem";
+import User from "../db/models/user";
 
 export interface ItestConfig {
   username: string;
@@ -41,3 +45,17 @@ export interface IField {
   isUrl?: boolean;
   isEmail?: boolean;
 }
+
+export interface DBModels {
+  sequelize: Sequelize;
+  Item: ModelStatic<Item>;
+  Order: ModelStatic<>;
+  OrderItem: ModelStatic<OrderItem>;
+  User: ModelStatic<User>;
+}
+
+export type Entity =
+  | ModelStatic<Item>
+  | ModelStatic<Order>
+  | ModelStatic<OrderItem>
+  | ModelStatic<User>;

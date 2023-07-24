@@ -1,5 +1,5 @@
 import { QueryInterface } from "sequelize";
-import { Order as order } from "../config/getEnterpriseBusinessRules";
+import { Order as order } from "../config/getDomainRules";
 import { setupMigrationField } from "../repository/config";
 
 /** @type {import('sequelize-cli').Migration} */
