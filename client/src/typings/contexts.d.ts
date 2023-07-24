@@ -1,4 +1,5 @@
 import { IOrder, IOrderWithRelations } from "./orders";
+import { IItem, IItemWithRelations } from "./items";
 
 export interface IContextProviderProps {
   children: React.ReactNode;
@@ -29,4 +30,31 @@ export interface IOrdersContext {
   setOrder: SetOrder;
   orderWithRelations: OrderWithRelations;
   setOrderWithRelations: SetOrderWithRelations;
+}
+
+// Items
+export type Items = IItem[] | IItemWithRelations[] | [];
+export type SetItems = React.Dispatch<React.SetStateAction<IItem[] | []>>;
+
+export type ItemsWithRelations = IItemWithRelations[] | [];
+export type SetItemsWithRelations = React.Dispatch<
+  React.SetStateAction<IItemWithRelations[] | []>
+>;
+
+export type Item = IItem | object;
+export type SetItem = React.Dispatch<React.SetStateAction<IItem | object>>;
+
+export type ItemWithRelations = IItemWithRelations | object;
+export type SetItemWithRelations = React.Dispatch<
+  React.SetStateAction<IItemWithRelations | object>
+>;
+export interface IItemsContext {
+  items: Items;
+  setItems: SetItems;
+  itemsWithRelations: ItemsWithRelations;
+  setItemsWithRelations: SetItemsWithRelations;
+  item: Item;
+  setItem: SetItem;
+  itemWithRelations: ItemWithRelations;
+  setItemWithRelations: SetItemWithRelations;
 }

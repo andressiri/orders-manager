@@ -9,7 +9,7 @@ export interface IUser {
   updateDate: Date;
 }
 
-export interface IUserWithRelations {
+export interface IUserWithRelations extends IUser {
   VendorOrders?: IOrder[];
   ClientOrders?: IOrder[];
 }

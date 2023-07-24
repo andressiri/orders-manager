@@ -12,7 +12,7 @@ export interface IItem {
   vendorId: string;
 }
 
-export interface IItemWithRelations {
+export interface IItemWithRelations extends IItem {
   Vendor?: IUser;
   Orders?: IOrder[];
 }
