@@ -2,7 +2,7 @@ import User from "./user";
 import Order from "./order";
 import Item from "./item";
 import OrderItem from "./orderItem";
-import { OrderPresenter } from "../repository/presenters";
+import { ItemPresenter, OrderPresenter } from "../repository/presenters";
 
 const modelsArray = [
   {
@@ -17,6 +17,7 @@ const modelsArray = [
   {
     name: "Item",
     model: Item,
+    presenter: ItemPresenter,
   },
   {
     name: "OrderItem",
