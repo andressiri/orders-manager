@@ -34,6 +34,10 @@ modelsArray.forEach((model) => {
   if (db[model.name].associate) db[model.name].associate(db);
 });
 
+modelsArray.forEach((model) => {
+  if (model.presenter) Object.assign(db[model.name], model.presenter(db));
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

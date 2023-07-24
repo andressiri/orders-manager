@@ -1,5 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IOrderItem } from "../../../domain/typings/orderItem";
+import { DBModels } from "../../typings/database";
 
 const OrderItemModel = (sequelize: Sequelize) => {
   class OrderItem extends Model<IOrderItem> implements IOrderItem {
@@ -9,8 +10,7 @@ const OrderItemModel = (sequelize: Sequelize) => {
     declare createDate: Date;
     declare updateDate: Date;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    static associate(models: any) {
+    static associate(models: DBModels) {
       OrderItem.belongsTo(models.Order, {
         foreignKey: "orderId",
         as: "hasOrderItems",
