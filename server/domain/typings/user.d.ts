@@ -7,6 +7,9 @@ export interface IUser {
   password: string;
   createDate: Date;
   updateDate: Date;
+}
+
+export interface IUserWithRelations {
   VendorOrders?: IOrder[];
   ClientOrders?: IOrder[];
 }

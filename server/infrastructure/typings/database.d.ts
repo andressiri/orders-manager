@@ -1,8 +1,14 @@
 import { Dialect, ModelStatic, Sequelize } from "sequelize";
-import Item from "../db/models/item";
-import Order from "../db/models/order";
-import OrderItem from "../db/models/orderItem";
-import User from "../db/models/user";
+import {
+  IItemModel,
+  IOrderModel,
+  IOrderItem,
+  IUser,
+} from "../../domain/typings/item";
+import ItemModel from "../db/models/item";
+import OrderModel from "../db/models/order";
+import OrderItemModel from "../db/models/orderItem";
+import UserModel from "../db/models/user";
 
 export interface ItestConfig {
   username: string;
@@ -48,14 +54,22 @@ export interface IField {
 
 export interface DBModels {
   sequelize: Sequelize;
-  Item: ModelStatic<Item>;
-  Order: ModelStatic<>;
-  OrderItem: ModelStatic<OrderItem>;
-  User: ModelStatic<User>;
+  Item: ModelStatic<ItemModel>;
+  Order: ModelStatic<OrderModel>;
+  OrderItem: ModelStatic<OrderItemModel>;
+  User: ModelStatic<UserModel>;
 }
 
 export type Entity =
-  | ModelStatic<Item>
-  | ModelStatic<Order>
-  | ModelStatic<OrderItem>
-  | ModelStatic<User>;
+  | ModelStatic<ItemModel>
+  | ModelStatic<OrderModel>
+  | ModelStatic<OrderItemModel>
+  | ModelStatic<UserModel>;
+
+export interface IDB {
+  sequelize: Sequelize;
+  Item: IItemModel;
+  Order: IOrderModel;
+  OrderItem: IOrderItem; // update when repository is developed
+  User: IUser; // update when repository is developed
+}

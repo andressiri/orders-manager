@@ -1,14 +1,14 @@
 import { Request } from "express";
-import { DBModels } from "../infrastructure/typings/database";
+import { IDB } from "../infrastructure/typings/database";
 
 declare global {
   namespace Express {
     interface Request {
-      db: DBModels;
+      db: IDB;
     }
   }
 }
 
 export interface ReqWithDB extends Request {
-  db: DBModels;
+  db: IDB;
 }

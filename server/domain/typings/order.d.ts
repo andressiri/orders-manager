@@ -20,18 +20,12 @@ export interface IOrderWithRelations extends IOrder {
   Vendor?: IUser;
   Client?: IUser;
 }
-
-export interface IOrderPresenter {
-  getOrders: string;
-  getOrdersWithRelations: string;
-  getOrderById: string;
-}
 export interface IOrderRepository {
   getOrders: () => Promise<IOrder[] | null>;
   getOrdersWithRelations: () => Promise<IOrderWithRelations[] | null>;
   getOrderById: (id: string) => Promise<IOrder | null>;
   getOrderByIdWithRelations: (
-    id: string
+    id: string,
   ) => Promise<IOrderWithRelations | null>;
 }
 
