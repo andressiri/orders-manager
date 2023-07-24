@@ -58,3 +58,14 @@ export interface IItemsContext {
   itemWithRelations: ItemWithRelations;
   setItemWithRelations: SetItemWithRelations;
 }
+
+// Entities
+export type EntitiesState =
+  | Orders
+  | OrdersWithRelations
+  | Order
+  | OrderWithRelations
+  | Items
+  | ItemsWithRelations
+  | Item
+  | ItemWithRelations;
