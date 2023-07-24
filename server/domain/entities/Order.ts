@@ -1,4 +1,11 @@
-const statusValuesArray = ["Approve", "Cancel", "Delivery", "Traveling"];
+import { OrderStatus } from "../typings/order";
+
+export const statusValuesArray: OrderStatus[] = [
+  "Approve",
+  "Cancel",
+  "Delivery",
+  "Traveling",
+];
 Object.freeze(statusValuesArray);
 
 const Order = {

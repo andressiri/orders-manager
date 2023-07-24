@@ -1,8 +1,7 @@
-import { Order } from "../entities";
 import { IItem } from "./item";
 import { IUser } from "./user";
 
-export type OrderStatus = typeof Order.status.values;
+export type OrderStatus = "Approve" | "Cancel" | "Delivery" | "Traveling";
 
 export interface IOrder {
   id: string;
@@ -27,6 +26,10 @@ export interface IOrderRepository {
   getOrderByIdWithRelations: (
     id: string,
   ) => Promise<IOrderWithRelations | null>;
+  getOrdersWithStatusThatExpireInNDays: (
+    status: OrderStatus,
+    days: number,
+  ) => Promise<IOrderWithRelations[] | null>;
 }
 
 export interface IOrderModel extends IOrderWithRelations, IOrderRepository {}

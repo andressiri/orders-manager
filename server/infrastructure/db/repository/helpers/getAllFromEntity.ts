@@ -1,4 +1,3 @@
-import { throwHTTPError } from "../../../../application/helpers";
 import { Entity } from "../../../typings/database";
 
 const getAllFromEntityConstructor = (entity: Entity) => {
@@ -7,8 +6,7 @@ const getAllFromEntityConstructor = (entity: Entity) => {
       raw: true,
     });
 
-    if (!results[0]?.id)
-      throwHTTPError(404, "There are no elements for that entity");
+    if (!results[0]?.id) return null;
 
     return results;
   };

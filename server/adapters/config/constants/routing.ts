@@ -3,6 +3,9 @@ export const API_ROUTE = "api";
 export const API_VERSION = "v1";
 export const BY_ID = "id";
 export const WITH_RELATIONS = "all";
+export const SEARCH = "search";
+export const STATUS = "status";
+export const DAYS = "days";
 
 // Orders
 export const ORDERS_ROUTE = "orders";

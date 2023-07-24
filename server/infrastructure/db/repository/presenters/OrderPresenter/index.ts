@@ -4,6 +4,7 @@ import { getAllFromEntity } from "../../helpers";
 import getOrdersWithRelations from "./getOrdersWithRelations";
 import getOrderById from "./getOrderById";
 import getOrderByIdWithRelationsConstructor from "./getOrderByIdWithRelations";
+import getOrdersWithStatusThatExpireInNDaysConstructor from "./getOrdersWithStatusThatExpireInNDays";
 
 const OrderPresenterConstructor = (db: DBModels) => {
   const OrderPresenter: IOrderRepository = {
@@ -11,6 +12,8 @@ const OrderPresenterConstructor = (db: DBModels) => {
     getOrdersWithRelations: getOrdersWithRelations(db),
     getOrderById: getOrderById(db.Order),
     getOrderByIdWithRelations: getOrderByIdWithRelationsConstructor(db),
+    getOrdersWithStatusThatExpireInNDays:
+      getOrdersWithStatusThatExpireInNDaysConstructor(db),
   };
 
   return OrderPresenter;

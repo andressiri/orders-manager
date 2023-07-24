@@ -1,5 +1,4 @@
 import { IncludeThroughOptions } from "sequelize";
-import { throwHTTPError } from "../../../../../application/helpers";
 import { DBModels } from "../../../../typings/database";
 
 const getOrdersWithRelationsConstructor = (models: DBModels) => {
@@ -27,7 +26,7 @@ const getOrdersWithRelationsConstructor = (models: DBModels) => {
       ],
     });
 
-    if (!results[0]?.id) throwHTTPError(404, "There are no orders available");
+    if (!results[0]?.id) return null;
 
     return results;
   };

@@ -1,6 +1,5 @@
 import { IncludeThroughOptions } from "sequelize";
 import { DBModels } from "../../../../typings/database";
-import { throwHTTPError } from "../../../../../application/helpers";
 
 const getOrderByIdWithRelationsConstructor = (models: DBModels) => {
   const getOrderByIdWithRelations = async (id: string) => {
@@ -27,7 +26,7 @@ const getOrderByIdWithRelationsConstructor = (models: DBModels) => {
       ],
     });
 
-    if (!result?.id) throwHTTPError(404, `There is no Order for the id ${id}`);
+    if (!result?.id) return null;
 
     return result;
   };

@@ -1,6 +1,5 @@
 import { IncludeThroughOptions } from "sequelize";
 import { DBModels } from "../../../../typings/database";
-import { throwHTTPError } from "../../../../../application/helpers";
 
 const getItemByIdWithRelationsConstructor = (models: DBModels) => {
   const getItemByIdWithRelations = async (id: string) => {
@@ -18,7 +17,7 @@ const getItemByIdWithRelationsConstructor = (models: DBModels) => {
       ],
     });
 
-    if (!result?.id) throwHTTPError(404, `There is no Item for the id ${id}`);
+    if (!result?.id) return null;
 
     return result;
   };
