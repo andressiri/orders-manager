@@ -2,11 +2,11 @@
 // @route GET /api/v1/orders/order/:id
 // @access Public
 import asyncHandler from "express-async-handler";
-import { Request } from "express";
+import { ReqWithDB } from "../../../typings/express";
 import { BY_ID } from "../../config/constants";
 import { getOrderById as useCase } from "../../../application/useCases";
 
-const getOrderById = asyncHandler(async (req: Request, res) => {
+const getOrderById = asyncHandler(async (req: ReqWithDB, res) => {
   const id = req.params[BY_ID];
   const Order = req.db.Order;
 
