@@ -4,9 +4,9 @@
 import asyncHandler from "express-async-handler";
 import { Request } from "express";
 import { BY_ID } from "../../config/constants";
-import { getOrderById as useCase } from "../../../application/useCases";
+import { getOrderByIdWithRelations as useCase } from "../../../application/useCases";
 
-const getOrderById = asyncHandler(async (req: Request, res) => {
+const getOrderByIdWithRelations = asyncHandler(async (req: Request, res) => {
   const id = req.params[BY_ID];
   const Order = req.db.Order;
 
@@ -15,4 +15,4 @@ const getOrderById = asyncHandler(async (req: Request, res) => {
   res.status(200).json(order);
 });
 
-export default getOrderById;
+export default getOrderByIdWithRelations;
