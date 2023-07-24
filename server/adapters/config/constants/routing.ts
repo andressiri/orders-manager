@@ -7,3 +7,7 @@ export const WITH_RELATIONS = "all";
 // Orders
 export const ORDERS_ROUTE = "orders";
 export const ORDERS_SINGULAR = "order";
+
+// Items
+export const ITEMS_ROUTE = "items";
+export const ITEMS_SINGULAR = "item";
