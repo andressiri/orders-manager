@@ -1,5 +1,6 @@
 import { Order } from "../entities";
 import { IItem } from "./item";
+import { IUser } from "./user";
 
 export type OrderStatus = typeof Order.status.values;
 
@@ -12,5 +13,26 @@ export interface IOrder {
   updateDate: Date;
   vendorId: string;
   clientId: string;
-  Items?: IItem[];
 }
+
+export interface IOrderWithRelations extends IOrder {
+  Items?: IItem[];
+  Vendor?: IUser;
+  Client?: IUser;
+}
+
+export interface IOrderPresenter {
+  getOrders: string;
+  getOrdersWithRelations: string;
+  getOrderById: string;
+}
+export interface IOrderRepository {
+  getOrders: () => Promise<IOrder[] | null>;
+  getOrdersWithRelations: () => Promise<IOrderWithRelations[] | null>;
+  getOrderById: (id: string) => Promise<IOrder | null>;
+  getOrderByIdWithRelations: (
+    id: string
+  ) => Promise<IOrderWithRelations | null>;
+}
+
+export interface IOrderModel extends IOrderWithRelations, IOrderRepository {}
