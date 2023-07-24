@@ -1,10 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  config: path.resolve("./frameworksAndDrivers/sequelizeCLI", "configDBCLI.js"),
-  "models-path": path.resolve("./frameworksAndDrivers/sequelizeCLI/models"),
-  "seeders-path": path.resolve("./frameworksAndDrivers/sequelizeCLI/seeders"),
+  config: path.resolve("./infrastructure/sequelizeCLI", "configDBCLI.js"),
+  "models-path": path.resolve("./infrastructure/sequelizeCLI/models"),
+  "seeders-path": path.resolve("./infrastructure/sequelizeCLI/seeders"),
   "migrations-path": path.resolve(
-    "./frameworksAndDrivers/sequelizeCLI/migrations"
+    "./infrastructure/sequelizeCLI/migrations"
   ),
 };

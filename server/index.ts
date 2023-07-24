@@ -2,10 +2,11 @@ import path from "path";
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-import db from "./frameworksAndDrivers/db/models";
-import router from "./interfaceAdapters/routes";
-import { API_ROUTE, API_VERSION } from "./interfaceAdapters/config/constants";
-import { errorHandler } from "./interfaceAdapters/middlewares";
+import db from "./infrastructure/db/models";
+import router from "./adapters/routes";
+import { API_ROUTE, API_VERSION } from "./adapters/config/constants";
+import { errorHandler } from "./adapters/middlewares";
+import { injectDB } from "./infrastructure/middlewares";
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
@@ -37,7 +38,7 @@ db.sequelize
   });
 
 // @/api/v1 router
-app.use(`/${API_ROUTE}/${API_VERSION}`, router);
+app.use(`/${API_ROUTE}/${API_VERSION}`, injectDB, router);
 
 app.use(errorHandler);
 
