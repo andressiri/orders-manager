@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const Container = styled(Box)(({ theme }) => ({
+  zIndex: 99,
   position: "fixed",
   top: "0px",
   left: "0px",

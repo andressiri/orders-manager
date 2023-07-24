@@ -10,8 +10,6 @@ const LandingPage: FC = () => {
 
   useGetItemsWithRelationsEffect({ errorToast: true });
 
-  console.log(itemsWithRelations);
-
   return (
     <PageTemplate title="Welcome to Orders Manager!">
       <InnerContainer>

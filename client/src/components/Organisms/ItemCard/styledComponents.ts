@@ -3,7 +3,6 @@ import { Box, Typography } from "@mui/material";
 
 export const Container = styled(Box)(({ theme }) => ({
   width: "500px",
-  height: "800px",
   border: `3px solid ${theme.palette.secondary.contrastText}`,
   borderRadius: theme.custom.radius.medium,
   display: "flex",
