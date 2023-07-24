@@ -1,4 +1,4 @@
-import { IOrder } from "./order";
+import { IOrder } from "./orders";
 
 export interface IUser {
   id: string;

@@ -55,7 +55,7 @@ const orderItemsSeed = {
           updateDate: new Date(),
         },
       ],
-      {}
+      {},
     );
   },
 

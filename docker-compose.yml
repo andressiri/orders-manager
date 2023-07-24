@@ -1,6 +1,20 @@
 version: "3.9"
 
 services:
+  siri-db-dev:
+    image: postgres:15.3-alpine
+    container_name: siri-db-dev-c
+    restart: on-failure:5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - siri-network
+
   siri-server:
     container_name: siri-server-c
     build:
@@ -8,3 +22,22 @@ services:
       target: production
     ports:
       - 8080:8080
+    networks:
+      - siri-network
+
+  siri-client:
+    container_name: siri-client-c
+    build:
+      context: ./client
+      target: production
+    ports:
+      - 5173:5173
+    networks:
+      - siri-network
+
+volumes:
+  pgdata:
+
+networks:
+  siri-network:
+    driver: bridge
