@@ -22,7 +22,7 @@ const itemsSeed = {
           title: "Mermaid Barbie",
           description:
             "Imaginations can dive into storytelling with the Barbie Dreamtopia Twinkle Lights mermaid doll with a magical light-up feature! Dip this beautiful Barbie mermaid doll in water to watch her pearly tail twinkle with one of four colorful light shows. Barbie Dreamtopia Twinkle Lights mermaid doll makes a splash in the bathtub or pool, but kids can also take the fun on land: press the star-shaped button on Barbie doll's bodice to enjoy the waterless light show. Rainbow fins, pink-striped hair and a princess tiara complete Barbie doll's colorful mermaid look. Perfect for bath time or water play (parental supervision required), the Barbie Dreamtopia Twinkle Lights mermaid doll makes a great gift for children ages 3 to 7. The doll cannot swim or stand alone. Colors and decorations may vary.",
-          url: "http://localhost:3000/items/8f05bc8c-7f01-4425-98d0-fd7cb4b06bcc",
+          url: "https://target.scene7.com/is/image/Target/GUEST_54ff16e2-fb13-49da-a97c-e0d78b42c53b?wid=488&hei=488&fmt=pjpeg",
           price: "13",
           quantity: "112",
           createDate: new Date(),

@@ -3,9 +3,9 @@ import { Box } from "@mui/material";
 
 export const Container = styled(Box)(({ theme }) => ({
   width: "100%",
-  paddingTop: theme.custom.buttons.height,
+  padding: `${theme.custom.header.height} 25px`,
   display: "flex",
-  gap: theme.custom.buttons.height,
+  gap: theme.custom.header.height,
   flexDirection: "column",
   alignItems: "center",
 }));
